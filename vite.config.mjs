@@ -16,7 +16,7 @@ export default defineConfig({
       theme_color: '#ee7f2d',
       icons: [
         {
-          "src": './assets/dictry.png',
+          "src": 'dictry.png',
           "sizes": "512x512",
           "type": "image/png"
         }
@@ -30,5 +30,5 @@ export default defineConfig({
     registerType: 'autoUpdate',
     includeManifestIcons: true,
   })],
-  publicDir: './assets',
+  publicDir: './src/assets',
 });

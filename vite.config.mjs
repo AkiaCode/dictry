@@ -16,7 +16,7 @@ export default defineConfig({
       theme_color: '#ee7f2d',
       icons: [
         {
-          "src": 'dictry.png',
+          "src": '/dictry.png',
           "sizes": "512x512",
           "type": "image/png"
         }
@@ -28,5 +28,6 @@ export default defineConfig({
     strategies: 'injectManifest',
     srcDir: 'src',
     includeAssets: ['dictry.png'],
+    registerType: 'autoUpdate'
   })]
 });

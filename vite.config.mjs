@@ -7,12 +7,7 @@ export default defineConfig({
   plugins: [solidPlugin({ adapter: vercel() }), VitePWA({
     manifest: {
       name: 'Dictry',
-      description: 'Guess one word a day!',
+      description: "Let's memorize the words for a day!",
     },
-    includeAssets: ['*.png', '*.ico']
-  })],
-  build: {
-    target: 'esnext',
-    polyfillDynamicImport: false,
-  },
+  })]
 });

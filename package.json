@@ -1,10 +1,10 @@
 {
-  "name": "vite-template-solid",
+  "name": "dictry",
   "version": "0.0.0",
-  "description": "",
+  "description": "Let's memorize the words for a day!",
   "scripts": {
     "start": "vite",
-    "dev": "vite",
+    "dev": "vite --port 8077",
     "build": "vite build",
     "serve": "vite preview"
   },

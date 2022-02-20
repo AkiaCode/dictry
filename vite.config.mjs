@@ -8,7 +8,8 @@ export default defineConfig({
     manifest: {
       name: 'Dictry',
       description: 'Guess one word a day!',
-    }
+    },
+    includeAssets: ['*.png', '*.ico']
   })],
   build: {
     target: 'esnext',

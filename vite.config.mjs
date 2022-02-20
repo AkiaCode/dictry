@@ -16,7 +16,7 @@ export default defineConfig({
       theme_color: '#ee7f2d',
       icons: [
         {
-          "src": new URL('./assets/dictry.png', import.meta.url).href,
+          "src": 'dictry.png',
           "sizes": "512x512",
           "type": "image/png"
         }
@@ -27,5 +27,6 @@ export default defineConfig({
     mode: 'development',
     strategies: 'injectManifest',
     srcDir: 'src',
+    includeAssets: ['dictry.png'],
   })]
 });

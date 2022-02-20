@@ -10,7 +10,7 @@ export default function Footer() {
             <br/>
             Princeton University "About WordNet." <a className={styles.licenseLink} href='https://wordnet.princeton.edu/'>WordNet</a>. Princeton University. 2010.
         </div>
-        Copyright 2022. S-Helloyunho. All rights reserved.
+        Copyright 2022. Ratry. All rights reserved.
     </footer>
   )
 }

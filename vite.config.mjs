@@ -6,6 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   plugins: [solidPlugin({ adapter: vercel() }), VitePWA({
     manifest: {
+      includeAssets: ['./assets/dictry.png'],
       short_name: 'dictry',
       name: 'Dictry',
       description: "Let's memorize the words for a day!",
@@ -16,14 +17,16 @@ export default defineConfig({
       theme_color: '#ee7f2d',
       icons: [
         {
-          "src": "./src/assets/dictry.png",
+          "src": "./assets/dictry.png",
           "sizes": "512x512",
           "type": "image/png"
         }
       ]
     },
-    workbox: {
-      swDest: 'service-worker.js',
-    }
+    base: '/',
+    filename: 'sw.ts',
+    mode: 'development',
+    strategies: 'injectManifest',
+    srcDir: 'src',
   })]
 });

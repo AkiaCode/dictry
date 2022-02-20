@@ -27,7 +27,7 @@ export default defineConfig({
     mode: 'development',
     strategies: 'injectManifest',
     srcDir: 'src',
-    includeAssets: ['dictry.png'],
+    includeAssets: ['./assets/dictry.png'],
     registerType: 'autoUpdate'
   })]
 });

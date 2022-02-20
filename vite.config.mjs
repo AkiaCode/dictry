@@ -23,6 +23,7 @@ export default defineConfig({
         }
       ]
     },
+    base: '/',
     filename: './sw.ts',
     mode: 'development',
     strategies: 'injectManifest',

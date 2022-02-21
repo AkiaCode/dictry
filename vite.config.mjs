@@ -6,7 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   plugins: [solidPlugin({ adapter: vercel() }), VitePWA({
     manifest: {
-      short_name: 'dictry',
+      short_name: 'Dictry',
       name: 'Dictry',
       description: "Let's memorize the words for a day!",
       start_url: '/',
@@ -19,7 +19,7 @@ export default defineConfig({
           "src": 'dictry.png',
           "sizes": "512x512",
           "type": "image/png",
-          "purpose": "any maskable"
+          "purpose": "maskable"
         }
       ]
     },

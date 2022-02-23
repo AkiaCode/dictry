@@ -39,7 +39,7 @@ export default function GameModel(props /** game { meaning: String, word: String
     return (
         <section className={styles.section}>
             <ErrorBoundary fallback={(err, reset) => <Fallback onClick={reset}><br/>{err.toString()}</Fallback>}>
-                <div className={styles.meaning}>{props.game.meaning}</div>
+                <div className={styles.glossary}>{props.game.glossary}</div>
                 <WordList lists={lists()} word={props.game.word.split('')}/>
                 <InputModel wordLength={props.game.word.length} input={input} setInput={setInput} isGameOver={isGameOver()}/>
                 {(isGameOver() === 'lose' || isGameOver() === 'win') && <div style={{ 'font-size': '4.75vh', padding: '16px' }}>Word: {props.game.word}</div> }

@@ -2,6 +2,7 @@ import { lazy, For, Match } from 'solid-js'
 import styles from '../App.module.css'
 
 const Box = lazy(() => import('./Box'))
+const Fallback = lazy(() => import('./Fallback'))
 
 export default function WordList(props /** lists: Array<Array<String>>, word: Array<String> */) {
 
@@ -9,9 +10,9 @@ export default function WordList(props /** lists: Array<Array<String>>, word: Ar
         <div>
             {props.lists.map((list, _) => {
                 return <div className={styles.wordList}>
-                    <For each={list} fallback={<div>Loading...</div>}>
+                    <For each={list} fallback={<Fallback/>}>
                         {(word, index) => {
-                            return <Switch fallback={<div>The cat touched the wire.</div>}>
+                            return <Switch fallback={<Fallback/>}>
                                 <Match when={word === props.word[index()]}>
                                     <Box answer={true} />
                                 </Match>

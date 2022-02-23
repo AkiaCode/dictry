@@ -1,44 +1,23 @@
-import { lazy, createResource } from 'solid-js'
-import { useRegisterSW } from 'virtual:pwa-register/solid'
+import { lazy } from 'solid-js'
+import { createWordTodayResource } from './libs/create'
 
 const Header = lazy(() => import('./components/Header'))
 const Footer = lazy(() => import('./components/Footer'))
 const GameModel = lazy(() => import('./components/GameModel'))
+const TutorialPopup = lazy(() => import('./components/TutorialPopup'))
+const Loading = lazy(() => import('./components/Loading'))
 
 function App() {
-  const {
-    offlineReady: [offlineReady, setOfflineReady],
-    needRefresh: [needRefresh, setNeedRefresh],
-    updateServiceWorker,
-  } = useRegisterSW({
-    onRegistered(r) {
-        console.log('SW Registered: ' + r)
-    },
-    onRegisterError(error) {
-        console.log('SW registration error', error)
-    },
-  })
-
-
-  const [wordTodayJson] = createResource(() => {
-    return fetch(`https://dictry-serverless.vercel.app/api/v1/word/today`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Dictry': new Date().valueOf()
-      }
-    }).then((e) => e.json())
-  })
+  const wordTodayJson = createWordTodayResource()
 
   return (
-    <div>
+    <>
       <Header/>
-        { wordTodayJson.loading ?
-          <div style={{ 'text-align': 'center', 'font-size': '7.57vh' }}>Dancing with the cat...</div>
-          : <GameModel word={wordTodayJson().word} meaning={wordTodayJson().glossary}/> }
+      <TutorialPopup/>
+        { wordTodayJson.loading ? <Loading/>
+        : <GameModel game={localStorage.getItem('dictry-game') !== null ? JSON.parse(localStorage.getItem('dictry-game')).game : wordTodayJson()}/> }
       <Footer/>
-    </div>
+    </>
   );
 }
 

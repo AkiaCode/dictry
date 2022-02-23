@@ -6,6 +6,9 @@
     text-align: center;
     margin-bottom: 22px;
     font-size: 3.35vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -26,8 +29,12 @@
 .header {
     display: flex;
     justify-content: center;
-    font-size: 4.5vh;
+    font-size: 3.95vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
+    z-index: 9999;
 }
 
 .section {
@@ -35,6 +42,7 @@
     flex-direction: column;
     align-items: center;
     font-size: 3.5vh;
+    z-index: 9999;
 }
 
 .question {
@@ -70,6 +78,9 @@
 .wordList {
     display: flex;
     flex-direction: row;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     align-items: center;
 }
@@ -88,4 +99,127 @@
 .input:focus {
     box-shadow: none;
     outline: none;
+}
+
+.layout {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2022;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.popup {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 55%;
+    height: 45%;
+    max-width: 460px;
+    max-height: 500px;
+    background-color: rgb(29, 29, 29);
+    overflow-y: auto;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:  2px dashed #ee7f2d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeIn 0.5s;
+}
+
+.popup + .popupFooter:active {
+    animation: fadeOut 0.5s;
+}
+
+.popupHeader {
+    font-size: 4.5vh;
+    border-bottom: 3px dashed #ee7f2d;
+    width: 100%;
+}
+
+.popupMessage {
+    font-size: 3.5vh;
+    word-break: break-word;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+.popupFooter {
+    font-size: 2.5vh;
+    width: 95%;
+    height: 50px;
+    border:  2px dashed #ee7f2d;
+    outline: 0;
+    cursor: pointer;
+    font-size: 4.5vh;
+    border-radius: 10px;
+    margin-top: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.loading {
+    text-align: center;
+    font-size: 7.57vh;
+}
+
+.meaning {
+    font-size: 3.75vh;
+    margin: 18.5px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-size: 3.75vh;
 }

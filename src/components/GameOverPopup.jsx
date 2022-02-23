@@ -23,7 +23,7 @@ export default function GameOverPopup(props /** nextday: Number, isGameOver: 'wi
                 <br/>
                 {props.isGameOver === 'win' ? 'You win!' : 'You lose!'}
                 <br/>
-                <div style={{  padding: '8px', border: '3px dashed #ee7f2d', 'border-radius': '16px' }}>Shrae your score!</div>
+                {/**<div style={{  padding: '8px', border: '3px dashed #ee7f2d', 'border-radius': '16px' }}>Shrae your score!</div>*/}
             </> }
             footer="Okay"
             isOpen={true}

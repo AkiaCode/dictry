@@ -3,14 +3,14 @@ import { lazy, createSignal, onCleanup, createEffect } from 'solid-js'
 const Popup = lazy(() => import('../components/Popup'))
 
 export default function GameOverPopup(props /** nextday: Number, isGameOver: 'win' or 'lose' */) {
-    const [CountDown, setCountDown] = createSignal(props.nextday - new Date().valueOf())
+    const [CountDown, setCountDown] = createSignal(props.nextday - Date.now())
 
     const timer = setInterval(() => setCountDown(CountDown() - 1000), 1000)
     onCleanup(() => { clearInterval(timer) })
 
     createEffect(() => {
         if (CountDown() <= 0) {
-            localStorage.setItem(`${new Date().valueOf()}-dictry`, localStorage.getItem('dictry-game'))
+            localStorage.setItem(`${Date.now()}-dictry`, localStorage.getItem('dictry-game'))
             localStorage.removeItem('dictry-game')
             location.reload()
         }

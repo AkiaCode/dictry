@@ -10,9 +10,12 @@ export default function GameOverPopup(props /** nextday: Number, isGameOver: 'wi
 
     createEffect(() => {
         if (CountDown() <= 0) {
-            localStorage.setItem(`${Date.now()}-dictry`, localStorage.getItem('dictry-game'))
-            localStorage.removeItem('dictry-game')
-            location.reload()
+            if (localStorage.getItem('dictry-game') !== null) {
+                localStorage.setItem(`${Date.now()}-dictry`, localStorage.getItem('dictry-game'))
+                localStorage.removeItem('dictry-game')
+            } else {
+                location.reload()
+            }
         }
     })
 

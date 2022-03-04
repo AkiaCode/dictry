@@ -3,7 +3,7 @@ import { lazy, createSignal, onCleanup, createEffect } from 'solid-js'
 const Popup = lazy(() => import('../components/Popup'))
 
 export default function GameOverPopup(props /** nextday: Number, isGameOver: 'win' or 'lose' */) {
-    const [CountDown, setCountDown] = createSignal(props.nextday - Date.now())
+    const [CountDown, setCountDown] = createSignal(props.nextday - new Date().getTime())
 
     const timer = setInterval(() => setCountDown(CountDown() - 1000), 1000)
     onCleanup(() => { clearInterval(timer) })
@@ -22,7 +22,7 @@ export default function GameOverPopup(props /** nextday: Number, isGameOver: 'wi
         <Popup
             header="Game Over"
             message={ <>
-                Next day: {new Date(CountDown()).getHours()}:{new Date(CountDown()).getMinutes()}:{new Date(CountDown()).getSeconds()}
+                Next day: {new Date(CountDown()).getHours()-new Date(props.nextday).getHours()}:{new Date(CountDown()).getMinutes()}:{new Date(CountDown()).getSeconds()}
                 <br/>
                 {props.isGameOver === 'win' ? 'You win!' : 'You lose!'}
                 <br/>

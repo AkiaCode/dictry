@@ -4,7 +4,7 @@ export function createWordTodayResource() {
   const [wordTodayJson, { refetch }] = createResource(() => {
     return localStorage.getItem('dictry-game') !== null
     ? JSON.parse(localStorage.getItem('dictry-game'))
-    : fetch(`https://dictry-serverless.vercel.app/api/v1/word/today`, {
+    : fetch(`https://dictryc-serverless.vercel.app/api/v1/word/today`, {
       method: 'GET',
       mode: 'cors',
       headers: {

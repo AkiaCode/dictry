@@ -22,7 +22,7 @@ export default function GameOverPopup(props /** nextday: Number, isGameOver: 'wi
         <Popup
             header="Game Over"
             message={ <>
-                Next day: {new Date(CountDown()).getHours()-new Date(props.nextday).getHours()}:{new Date(CountDown()).getMinutes()}:{new Date(CountDown()).getSeconds()}
+                Next day: {Math.abs(new Date(CountDown()).getHours()-new Date(props.nextday).getHours())}:{new Date(CountDown()).getMinutes()}:{new Date(CountDown()).getSeconds()}
                 <br/>
                 {props.isGameOver === 'win' ? 'You win!' : 'You lose!'}
                 <br/>
